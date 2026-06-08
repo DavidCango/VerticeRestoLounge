@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vértice Resto Lounge">
+    <meta name="author" content="Vértice Resto Lounge">
+    <title>Vértice - Resto Lounge</title>
+
+    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="assets/css/vendors.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <link href="assets/css/wizard.css" rel="stylesheet">
+    <link href="assets/css/vegas.min.css" rel="stylesheet">
+
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div>
+
+	<div id="loader_form">
+		<div data-loader="circle-side-2"></div>
+	</div>
+
+	<div class="top-bar">
+		<div class="container-fluid">
+			
+			<div class="topbar-left">
+				<span>
+					<i class="bi bi-geo-alt-fill"></i>
+					El Pangui S14-348 Y Serapio Japerabia. Quito - Ecuador
+				</span>
+			</div>
+
+			<div class="topbar-right">
+				<a href="https://www.instagram.com/vertice.uio" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+				<a href="https://www.tiktok.com/@vertice.uio" target="_blank" rel="noopener noreferrer"><i class="bi bi-tiktok"></i></a>
+				<a href="https://wa.me/593980354123" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
+			</div>
+
+		</div>
+	</div>
+				
+	<header class="header clearfix element_to_stick">
+		<div class="container-fluid">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="assets/img/logo_horizontal_sin_eslogan.svg" width="200" height="55" class="logo_normal">
+                    <img src="assets/img/logo_horizontal_sin_eslogan.svg" width="200" height="55" class="logo_sticky">
+                </a>
+            </div>
+            
+            <!-- <a href="#0" class="open_close">
+                <i class="icon_menu"></i><span>Menu</span>
+            </a> -->
+
+            <nav class="main-menu">
+                <!-- <div id="header_menu">
+                    <a href="#0" class="open_close">
+                        <i class="icon_close"></i><span>Menu</span>
+                    </a>
+                    <a href="index.html"><img src="img/logo.svg" width="140" height="35" alt=""></a>
+                </div> -->
+                <ul>
+                    <li class="submenu">
+                        <a href="index.html#inicio" class="show-submenu">Inicio</a>
+                    </li>
+                    <li class="submenu">
+                        <a href="index.html#nosotros" class="show-submenu">Nosotros</a>
+                    </li>
+                    <li class="submenu">
+                        <a href="index.html#menu" class="show-submenu">Menú</a>
+                    </li>
+                    <li class="submenu">
+                        <a href="index.html#contacto" class="show-submenu">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="reservations.html" class="btn_top">Reservar</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+	</header>
+	
+	<main>
+        <div class="hero_single inner_pages background-image" data-background="url(assets/img/reservation.png)">
+            <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9 col-lg-10 col-md-8">
+                            <h1>SOLICITA TU RESERVA</h1>
+                            <p>Indícanos la fecha, hora e invitados y te ayudaremos a coordinar tu visita.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="frame white"></div>
+        </div>
+
+        <div class="pattern_2">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center d-none d-lg-block" data-cue="slideInUp">
+                        <img src="assets/img/reservation.png" width="400" height="733" class="img-fluid">
+                    </div>
+                    <div class="col-lg-6 col-md-8" data-cue="slideInUp">
+                        <div class="main_title">
+                            <span><em></em></span>
+                            <h2>Reserva</h2>
+                            <p>o Llámanos al 098 035 4123</p>
+                        </div>
+                        <div id="wizard_container">
+                            <form id="wrapped" method="POST">
+                                <input id="website" name="website" type="text" value="">
+                                <div id="middle-wizard">
+                                    <div class="step">
+                                        <h3 class="main_question"><strong>1/3</strong> Por favor, selecciona una fecha</h3>
+                                        <div class="form-group">
+                                            <input type="hidden" name="datepicker_field" id="datepicker_field" class="required">
+                                        </div>
+                                        <div id="DatePicker"></div>
+                                    </div>
+                                    <div class="step">
+                                        <h3 class="main_question"><strong>2/3</strong> Selecciona la hora</h3>
+                                        <div class="form-group">
+                                            <select id="horaReserva" name="horaReserva" class="form-control" required>
+                                                <option value="">Selecciona la hora</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="submit step">
+                                        <h3 class="main_question"><strong>3/3</strong> ¿Cuántas personas?</h3>
+                                        <div class="radio_select">
+                                            <div class="form-group">
+                                            <select id="personasReserva" name="personasReserva" class="form-control" required>
+                                                <option value="">Selecciona el número de personas</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="bottom-wizard">
+                                    <button type="button" name="backward" class="backward">Atrás</button>
+                                    <button type="button" name="forward" class="forward">Siguiente</button>
+                                    <button type="submit" name="process" class="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+
+	<footer>
+	    <div class="frame black"></div>
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+	                <div class="footer_wp">
+	                    <i class="icon_pin_alt"></i>
+	                    <h3>Dirección</h3>
+	                    <p>El Pangui S14-348 Y Serapio Japerabia. Quito - Ecuador.</p>
+	                </div>
+	            </div>
+	            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+	                <div class="footer_wp">
+	                    <i class="icon_tag_alt"></i>
+	                    <h3>Contacto</h3>
+	                    <p><a href="tel:+593980354123">098 035 4123</a><br><a href="#0">info@verticerestolounge.com</a></p>
+	                </div>
+	            </div>
+	            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+	                <div class="footer_wp">
+	                    <i class="icon_clock_alt"></i>
+	                    <h3>Horarios</h3>
+	                    <ul>
+	                        <li>Lun - Sab: 10am - 11pm</li>
+	                        <li>Domingo: Cerrado</li>
+	                    </ul>
+	                </div>
+	            </div>
+				<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+	                <div class="footer_wp">
+	                    <i class="icon_comment_alt"></i>
+	                    <h3>Redes sociales</h3>
+	                </div>
+					<div class="follow_us">
+					    <ul>
+					        <li><a href="https://www.instagram.com/vertice.uio"  target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
+					        <li><a href="https://www.tiktok.com/@vertice.uio" target="_blank" rel="noopener noreferrer"><i class="bi bi-tiktok"></i></a></li>
+					        <li><a href="https://wa.me/593980354123" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a></li>
+					    </ul>
+					</div>
+	            </div>
+	        </div>
+
+	        <hr>
+	        <div class="row justify-content-center">
+	            <div class="col-sm-5">
+	                <p class="copy">© Vértice - Resto Lounge. Todos los derechos reservados.</p>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+
+	<div id="toTop"></div>
+
+    <div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const selectHora = document.getElementById("horaReserva");
+
+        for(let hora = 10; hora <= 23; hora++) {
+            ["00", "30"].forEach(min => {
+                const option = document.createElement("option");
+                option.value = `${hora}:${min}`;
+                option.textContent = `${hora}:${min}`;
+                selectHora.appendChild(option);
+            });
+        }
+
+        const selectPersonas = document.getElementById("personasReserva");
+
+        for(let i = 1; i <= 20; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            selectPersonas.appendChild(option);
+        }
+    </script>
+
+    <script src="assets/js/common_scripts.min.js"></script>
+    <script src="assets/js/common_func.js"></script>
+    <script src="assets/phpmailer/validate.js"></script>
+
+    <script src="assets/js/wizard/wizard_scripts.min.js"></script>
+    <script src="assets/js/wizard/wizard_func.js"></script>
+
+</body>
+</html>

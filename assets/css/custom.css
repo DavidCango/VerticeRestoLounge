@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Apple Chancery';
+    src: url('../../assets/fonts/Apple-Chancery.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Acumin Pro';
+    src: url('../../assets/fonts/Acumin-RPro.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body{
     overscroll-behavior: none;
@@ -86,6 +100,82 @@ body{
 }
 
 .menu_item figure img{
-    width: 100px;
-    height: 80px;
+    width: 90px;
+    height: 125px;
+}
+
+.follow_us{
+    float: left;
+    padding-left: 40px;
+}
+
+.follow_us ul li a{
+    font-size: 22px;
+}
+
+footer .copy {
+  margin-bottom: 10px;
+}
+
+.padding_100_40 {
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+#contacto .main_title span em{
+    float: right;
+}
+
+.hero_single.inner_pages .col-xl-9 h1 {
+    font-family: 'Acumin Pro', cursive;
+    font-weight: 600;
+}
+
+.hero_single.inner_pages .col-xl-9 p {
+    font-family: 'Apple Chancery', cursive;
+}
+
+.hero_kenbburns.kenburns_slider .col-xl-8 h1 {
+    font-family: 'Acumin Pro', cursive;
+}
+
+.hero_kenbburns.kenburns_slider .col-xl-8 p {
+    font-family: 'Apple Chancery', cursive;
+}
+
+.menu-section h1 {
+    font-style: italic;
+    font-family: fantasy;
+    letter-spacing: 15px;
+    font-size: 100px;
+}
+
+.menu-section h1 span {
+    letter-spacing: 9px;
+}
+
+.full-container img.logo_normal {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.half-container .txt_container ul li h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.half-container .txt_container ul li h3 span {
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .half-container .txt_container ul li h3 {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
 }
