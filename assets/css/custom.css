@@ -179,3 +179,60 @@ footer .copy {
         text-align: left !important;
     }
 }
+
+.beer-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.beer-details {
+    font-size: 0.95rem;
+    color: #8c7b5a;
+    margin-top: 4px;
+}
+
+.beer-description {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 4px;
+    color: #666;
+}
+
+.beer-category {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #9b845a;
+    text-transform: uppercase;
+    border-bottom: 1px solid #d8cdb8;
+    padding-bottom: 8px;
+}
+
+.beer-sizes {
+    color: #8f7a52;
+    font-size: 1.1rem;
+}
+
+.beer-sizes div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.beer-sizes span {
+    font-weight: 600;
+    color: #263b40;
+}
+
+.half-container .txt_container ul li h5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.half-container .txt_container ul li h5 span {
+    margin-left: 15px;
+    white-space: nowrap;
+}
