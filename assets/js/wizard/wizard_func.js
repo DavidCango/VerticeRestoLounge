@@ -24,7 +24,7 @@ jQuery(function ($) {
 		"¡Muchas gracias! 😊";
 
 		window.open(
-			"https://api.whatsapp.com/send?phone=593979238423&text=" + encodeURIComponent(mensaje),
+			"https://api.whatsapp.com/send?phone=593980354123&text=" + encodeURIComponent(mensaje),
 			"_blank"
 		);
 

@@ -362,15 +362,6 @@ a.btn_play:hover {
   background: url(../img/frame_white.png) 0 0 repeat-x;
   background-size: 10px 3px;
 }
-.frame.gray {
-  background: url(../img/frame_gray.png) 0 0 repeat-x;
-  background-size: 10px 3px;
-}
-.frame.black {
-  background: url(../img/frame_footer.png) 0 0 repeat-x;
-  background-size: 10px 3px;
-  top: -3px;
-}
 
 /* Header */
 header {
@@ -444,16 +435,11 @@ header.header_in ul#top_menu li a {
 }
 
 header a.open_close {
-  position: absolute;
-  left: 10px;
-  top: 2px;
   z-index: 999;
   color: #fff;
   font-size: 32px;
   font-size: 2rem;
   display: none;
-  width: 25px;
-  height: 25px;
 }
 @media (max-width: 991px) {
   header a.open_close {
@@ -722,22 +708,11 @@ header.header_in .main-menu > ul > li:hover > a {
     color: #fff !important;
   }
 
-  .main-menu ul li a:hover,
-  a.show-submenu:hover {
-    color: #B0935B !important;
-    background-color: #f9f9f9;
-    opacity: 1 !important;
-  }
 
   .main-menu ul li {
     border-top: none;
     border-bottom: 1px solid #ededed;
     color: #fff;
-  }
-
-  /* Menu mobile first level */
-  .main-menu ul li a {
-    padding: 15px !important;
   }
 
   .main-menu li,
@@ -3077,7 +3052,6 @@ iframe.map_contact {
 .nav-link {
   display: block;
   padding: 0 15px;
-  height: 30px;
   font-size: 15px;
   font-size: 0.9375rem;
   color: #444;

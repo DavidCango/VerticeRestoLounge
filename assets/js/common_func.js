@@ -161,10 +161,10 @@
 	});
 
 	// Video modal
-	$('.btn_play, .video').magnificPopup({
-		type: 'iframe',
-		closeMarkup: '<button title="%title%" type="button" class="mfp-close" style="font-size:24px; margin-right:-10px;">&#215;</button>'
-	});
+	// $('.btn_play, .video').magnificPopup({
+	// 	type: 'iframe',
+	// 	closeMarkup: '<button title="%title%" type="button" class="mfp-close" style="font-size:24px; margin-right:-10px;">&#215;</button>'
+	// });
 
 	// Scroll to position
     $('a[href^="#"].btn_scroll').on('click', function (e) {
