@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Foores Restaurant">
+    <meta name="description" content="Vértice Resto - Lounge">
     <meta name="author" content="Ansonika">
-    <title>Foores Restaurant</title>
+    <title>Vértice Resto - Lounge</title>
 </head>
 
 <body>
+
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -23,85 +24,88 @@ require 'src/SMTP.php';
 $mail = new PHPMailer(true);
 
 try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.hostinger.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'info@verticerestolounge.com';
+    $mail->Password   = 'Vertice.3210';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
 
-    //Server settings
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtpserver';                           // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'username';                             // SMTP username
-    $mail->Password   = 'password';                             // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-    //Recipients - main edits
-    $mail->setFrom('info@foores.com', 'Message from Foores');                    // Email Address and Name FROM
-    $mail->addAddress('info@foores.com', 'Jhon Doe');                            // Email Address and Name TO - Name is optional
-    $mail->addReplyTo('noreply@foores.com', 'Message from Foores');              // Email Address and Name NOREPLY
-    $mail->isHTML(true);                                                       
-    $mail->Subject = 'Message from Foores';                                      // Email Subject   
-
-    // Email verification, do not edit
+    $mail->setFrom('info@verticerestolounge.com', 'Vértice Resto - Lounge');
+    $mail->addAddress('info@verticerestolounge.com', 'Vértice Resto - Lounge');
+    $mail->isHTML(true);                                                    
+    $mail->Subject = 'Formulario de contacto - ' . $name_contact;
+    
     function isEmail($email_contact ) {
         return(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/",$email_contact));
     }
 
-    // Form fields
     $name_contact     = $_POST['name_contact'];
     $email_contact    = $_POST['email_contact'];
     $message_contact = $_POST['message_contact'];
-    $verify_contact   = $_POST['verify_contact'];
 
     if(trim($name_contact) == '') {
-    echo '<div class="error_message">You must enter your Name.</div>';
+    echo '<div class="error_message">Por favor ingresa tu nombre.</div>';
     exit();
     } else if(trim($email_contact) == '') {
-        echo '<div class="error_message">Please enter a valid email address.</div>';
+        echo '<div class="error_message">Por favor ingresa un correo electrónico válido.</div>';
         exit();
     } else if(!isEmail($email_contact)) {
-        echo '<div class="error_message">You have enter an invalid e-mail address.</div>';
+        echo '<div class="error_message">El correo electrónico ingresado no es válido.</div>';
         exit();
     } else if(trim($message_contact) == '') {
-        echo '<div class="error_message">Please enter your message.</div>';
+        echo '<div class="error_message">Por favor escribe tu mensaje.</div>';
         exit();
-    } else if(!isset($verify_contact) || trim($verify_contact) == '') {
-        echo '<div class="error_message"> Please enter the verification number.</div>';
-        exit();
-    } else if(trim($verify_contact) != '4') {
-        echo '<div class="error_message">The verification number you entered is incorrect.</div>';
-        exit();
-    }                               
-            
-    // Get the email's html content
+    }                           
+    
+    $mail->addReplyTo($email_contact, $name_contact);  
+    
     $email_html = file_get_contents('template-email.html');
 
-   // Setup html content
-    $e_content = "You have been contacted by <strong>$name_contact</strong> with the following message:<br><br>$message_contact<br><br>You can contact $name_contact via email at $email_contact";
+    $fecha = date('d/m/Y H:i');
+
+    $e_content = 
+    "<p><strong>Nombre:</strong> {$name_contact}</p>
+    <p><strong>Correo:</strong> <a href='mailto:{$email_contact}'>{$email_contact}</a></p>
+    <p><strong>Fecha:</strong> {$fecha}</p>
+    <hr>
+    <p><strong>Mensaje:</strong></p>
+    <p>{$message_contact}</p>";
+
     $body = str_replace(array('message'),array($e_content),$email_html);
     $mail->MsgHTML($body);
 
-    $mail->CharSet = 'UTF-8'; //Force UTF for special characters
+    $mail->CharSet = 'UTF-8';
 
     $mail->send();
 
-    // Confirmation/autoreplay email send to who fill the form
     $mail->ClearAddresses();
-    $mail->isSMTP();
-    $mail->addAddress($_POST['email_contact']); // Email address entered on form
+    $mail->clearReplyTos();
+    $mail->addAddress($email_contact);
     $mail->isHTML(true);
-    $mail->Subject    = 'Confirmation'; // Custom subject
+    $mail->Subject = 'Hemos recibido tu mensaje';
     
-    // Get the email's html content
     $email_html_confirm = file_get_contents('confirmation.html');
 
-    // Setup html content, do not edit
-    $body = str_replace(array('message'),array($e_content),$email_html_confirm);
+    $confirm_content = 
+    "<p>Hola <strong>{$name_contact}</strong>,</p>
+    <p>Hemos recibido tu mensaje correctamente.</p>
+    <p>Nuestro equipo revisará tu mensaje y se pondrá en contacto contigo lo antes posible.</p>
+    <p>Gracias por comunicarte con nosotros.</p>
+    <p><strong>Vértice Resto - Lounge</strong></p>";
+
+    $body = str_replace(
+        array('message'),
+        array($confirm_content),
+        $email_html_confirm
+    );
+
     $mail->MsgHTML($body);
 
-    $mail->CharSet = 'UTF-8'; //Force UTF for special characters
+    $mail->CharSet = 'UTF-8';
+    $mail->send();
 
-    $mail->Send();
-
-    // Succes message
     echo '<div id="success_page">
             <div class="icon icon--order-success svg">
                  <svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px">
@@ -111,12 +115,12 @@ try {
                   </g>
                  </svg>
              </div>
-            <h5>Thank you!<span>Request successfully sent!</span></h5>
-            <small>We will reply shortly.</small>
+            <h5>¡Gracias!<span>Tu mensaje ha sido enviado correctamente.</span></h5>
+            <small>Nos pondremos en contacto contigo lo antes posible.</small>
         </div>';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }  
+        echo "No fue posible enviar el mensaje. Error: {$mail->ErrorInfo}";
+} 
 ?> 
 
 </body>
