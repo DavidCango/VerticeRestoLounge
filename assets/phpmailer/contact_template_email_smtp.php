@@ -13,6 +13,7 @@
 
 <?php
 
+date_default_timezone_set('America/Guayaquil');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -35,7 +36,6 @@ try {
     $mail->setFrom('info@verticerestolounge.com', 'Vértice Resto - Lounge');
     $mail->addAddress('info@verticerestolounge.com', 'Vértice Resto - Lounge');
     $mail->isHTML(true);                                                    
-    $mail->Subject = 'Formulario de contacto - ' . $name_contact;
     
     function isEmail($email_contact ) {
         return(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/",$email_contact));
@@ -57,13 +57,14 @@ try {
     } else if(trim($message_contact) == '') {
         echo '<div class="error_message">Por favor escribe tu mensaje.</div>';
         exit();
-    }                           
-    
-    $mail->addReplyTo($email_contact, $name_contact);  
+    }        
+
+    $mail->Subject = 'Formulario de contacto - ' . $name_contact;
+    $mail->addReplyTo($email_contact, $name_contact);
     
     $email_html = file_get_contents('template-email.html');
 
-    $fecha = date('d/m/Y H:i');
+    $fecha = date('d/m/Y h:i A');
 
     $e_content = 
     "<p><strong>Nombre:</strong> {$name_contact}</p>

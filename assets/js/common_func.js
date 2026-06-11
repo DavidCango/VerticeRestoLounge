@@ -43,6 +43,7 @@
 	});
 	$('a.show-submenu').on("click", function () {
 		$(this).next().toggleClass("show_normal");
+		$('.main-menu').toggleClass('show');
 	});
 
 	/* Cart Dropdown Hidden From tablet */
